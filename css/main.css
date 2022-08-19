@@ -1,0 +1,104 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+@font-face{
+    font-family: RubikDistressed;
+    src:url(../fonts/RubikDistressed.ttf)
+}
+
+h2{
+    font-family:RubikDistressed;
+    color: #efb435;
+}
+
+p{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+    color: #e7a766;
+}
+header{
+    background-image: url('../img/DP-fundo.jpg');
+}
+.img-logo{
+    width: 70%;
+    padding-top: 70%;
+    background-color: antiquewhite;
+    position: relative;
+}
+.menu{
+    width: 64px;
+    height: 64px;
+    background-color: white;
+    border-radius: 50%;
+    background-image: url('../img/menu-icone.png');
+    background-size: 100% 100%;
+    position: absolute;
+    cursor: pointer;
+    top: 20px;
+    right: 20px;
+    transition: 1.5s;
+}
+.menu:hover{
+    width: 70px;
+    height: 70px;
+    transform: rotate(360deg);
+}
+.fundo-menu{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 2;
+    transition: 0.5s;
+    display: none;
+}
+.menu-nav{
+    width: 15%;
+    height: 100%;
+    float: right;
+    background-color: #efb435;
+}
+.menu-nav #botao{
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    font-weight: bold;
+    transition: 1s;
+}
+.menu-nav #botao:hover{
+    background-color: rgb(186, 73, 73);
+    color: white;
+}
+.menu-nav ul{
+    padding: 50px 0 50px 0;
+    list-style: none;
+    text-align: center;
+}
+.menu-nav li{
+    width: 100%;
+    display: inline-block;
+    padding: 5px 0;
+    transition: 0.5s;
+}
+.menu-nav li:hover{
+    background-color: rgba(255, 255, 255, 0.7);
+
+}
+.menu-nav a{
+    text-decoration: none;
+    font-style: italic;
+    font-size: 25px;
+    color: black;
+}
+/*Media querys*/
+
+@media screen and (max-width: 768px){
+    header{
+        background-position: center;
+    }
+}
