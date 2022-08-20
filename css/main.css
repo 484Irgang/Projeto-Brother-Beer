@@ -32,7 +32,8 @@ header{
     border-radius: 50%;
     background-image: url('../img/menu-icone.png');
     background-size: 100% 100%;
-    position: absolute;
+    position: fixed;
+    z-index: 2;
     cursor: pointer;
     top: 20px;
     right: 20px;
@@ -46,11 +47,11 @@ header{
 .fundo-menu{
     width: 100%;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     background-color: rgba(0,0,0,0.7);
-    z-index: 2;
+    z-index: 3;
     transition: 0.5s;
     display: none;
 }
@@ -98,6 +99,7 @@ header{
 .s1{
     background-color: #6f1d00;
     padding-top: 300px;
+    padding-bottom: 40px;
     width: 100%;
     text-align: center;
     position: relative;
@@ -108,7 +110,6 @@ header{
 }
 .b1{
     width : calc(30% - 20px);
-    height: 250px;
     background-color: rgba(0,0,0,0.7);
     margin: 0 20px;
     top: -75px;
@@ -117,7 +118,6 @@ header{
 }
 .b2{
     width : calc(40% - 20px);
-    height: 300px;
     background-color: rgba(110,80,20,0.7);
     top: -100px;
     left: 50%;
@@ -130,15 +130,98 @@ header{
 }
 .b3{
     width : calc(30% - 20px);
-    height: 250px;
     background-color: rgba(0,0,0,0.7);
     margin: 0 20px;
     top: -75px;
     padding: 20px 20px;
     right: 0;
 }
+.box-text{
+    position: relative;
+    top: 50%;
+    transform: translatey(-50%);
+}
+.imagem{
+    background-image: url('../img/itapema.png');
+    background-position: center;
+    background-size: auto 100%;
+    padding-top: 50%;
+    border-radius: 50%;
+}
+/* ACIMA A SESSÃo-1 */
+/* ABAIXO A SESSÃO-2 */
+.s2{
+    width: 100%;
+    background-image: url('../img/DP-fundo2.jpg');
+    background-position: center;
+    text-align: center;
+}
+.box2{
+    width: 300px; 
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.4);
+    float: right;
+    margin-top: 30px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: 1s;
+    border-radius: 15px;
+}
+.box2:hover{
+    background-color: rgba(255, 255, 255, 0.9);
+}
+.h1{
+    margin-left: 20px;
+    font-size: 60px;
+    color: #d01410;
+}
+#botao2{
+    border: none;
+    width: 300px;
+    height: 80px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: #efb435;
+    background-color: #b90e14;
+    border-radius: 30px;
+    position: relative;
+    bottom: 100px;
+    left: 100px;
+    display: block;
+    margin-top: 30px;
+}
+#botao2:hover{
+    background-color: #6f1d00;
+}
+/* ACIMA A SESSÃO-2 */
+/* ABAIXO O FOOTER */
+    #btn-wpp{
+    border: none;
+    box-shadow: 5px 5px 5px black;
+    width: 300px;
+    height: 80px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #00c739;
+    border-radius: 30px;
+    transition: 0.5s;
+    }
+    #btn-wpp:hover{
+        background-color: #008927;
+    }
 /*Media querys*/
-
+@media screen and (max-width: 900px){
+    .b1,.b3{
+        height: 300px;
+    }
+    .b2{
+        height: 350px;
+    }
+}
 @media screen and (max-width: 768px){
     header{
         background-position: center;
@@ -162,6 +245,19 @@ header{
     .b2 p{
         font-size: 16px;
     }
+    .imagem{
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50%;
+    }
+    #botao2{
+        position: static;
+        display: inline-block;
+    }
+    .box-foo{
+        flex-direction: column-reverse;
+    }
 }
 @media screen and (max-width: 600px){
     .menu-nav{
@@ -176,9 +272,11 @@ header{
     .b1, .b3{
         width: 60%;
         top: -25px;
+        height: auto;
     }
     .b2{
         top: -55px;
+        height: auto;
         left: 0;
         width: 100%;
         transform: none;
@@ -188,5 +286,16 @@ header{
     }
     .b3{
         top: -85px;
+    }
+    .h1{
+        margin-left: 0;
+    }
+}
+@media screen and (max-width: 400px){
+    .box-text2{
+        flex-direction: column;
+    }
+    #btn-wpp{
+        width: 100%;
     }
 }
