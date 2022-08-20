@@ -19,6 +19,7 @@ window.onload = function(){
 
         function abrirMenu(e){
             fundoMenu.style.display = 'block';
+            document.body.style.overflow = 'hidden';
             menuAberto = true;
         }
         function fecharMenu(e){
@@ -28,6 +29,7 @@ window.onload = function(){
             else{
                 if(menuAberto){
                     fundoMenu.style.display = 'none'
+                    document.body.style.overflow = 'auto';
                     menuAberto = false;
                 }
             }

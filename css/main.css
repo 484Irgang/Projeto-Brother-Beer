@@ -8,15 +8,13 @@
     src:url(../fonts/RubikDistressed.ttf)
 }
 
-h2{
+h2, h3, h1{
     font-family:RubikDistressed;
-    color: #efb435;
 }
 
 p{
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-weight: 600;
-    color: #e7a766;
 }
 header{
     background-image: url('../img/DP-fundo.jpg');
@@ -57,7 +55,7 @@ header{
     display: none;
 }
 .menu-nav{
-    width: 15%;
+    width: 25%;
     height: 100%;
     float: right;
     background-color: #efb435;
@@ -95,10 +93,100 @@ header{
     font-size: 25px;
     color: black;
 }
+/* ACIMA O HEADER */
+/* ABAIXO SESSÃO-1 */
+.s1{
+    background-color: #6f1d00;
+    padding-top: 300px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+.box{
+    position: absolute;
+  
+}
+.b1{
+    width : calc(30% - 20px);
+    height: 250px;
+    background-color: rgba(0,0,0,0.7);
+    margin: 0 20px;
+    top: -75px;
+    left: 0;
+    padding: 20px 20px;
+}
+.b2{
+    width : calc(40% - 20px);
+    height: 300px;
+    background-color: rgba(110,80,20,0.7);
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 30px 35px;
+    
+}
+.b2 p{
+    font-size: 19px;
+}
+.b3{
+    width : calc(30% - 20px);
+    height: 250px;
+    background-color: rgba(0,0,0,0.7);
+    margin: 0 20px;
+    top: -75px;
+    padding: 20px 20px;
+    right: 0;
+}
 /*Media querys*/
 
 @media screen and (max-width: 768px){
     header{
         background-position: center;
+    }
+    .menu-nav{
+        width: 35%;
+    }
+    .container-lg{
+        padding: 0;
+    }
+    .box{
+        margin: 0 auto;
+    }
+    .b1,.b3{
+        width: 30%;   
+        padding: 20px 5px;     
+    }
+    .b2{
+        width: 40%;
+    }
+    .b2 p{
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 600px){
+    .menu-nav{
+        width: 50%;
+    }
+    .s1{
+        padding-top: 20px;
+    }
+    .box{
+        position: inherit;
+    }
+    .b1, .b3{
+        width: 60%;
+        top: -25px;
+    }
+    .b2{
+        top: -55px;
+        left: 0;
+        width: 100%;
+        transform: none;
+    }
+    .b2 p{
+        font-size: 20px;
+    }
+    .b3{
+        top: -85px;
     }
 }
