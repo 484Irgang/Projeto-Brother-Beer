@@ -3,9 +3,17 @@
     margin: 0;
     box-sizing: border-box;
 }
+body, html{
+    width: 100%;
+    height: 100%;
+}
 @font-face{
     font-family: RubikDistressed;
     src:url(../fonts/RubikDistressed.ttf)
+}
+@font-face{
+    font-family: OpenSans;
+    src:url(../fonts/OpenSans.ttf)
 }
 
 h2, h3, h1{
@@ -13,16 +21,29 @@ h2, h3, h1{
 }
 
 p{
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family: OpenSans, Times, serif;
     font-weight: 600;
 }
 header{
     background-image: url('../img/DP-fundo.jpg');
 }
+.link-img{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.link-img a{
+    color: white;
+    text-decoration: none;
+    font-size: 10px;
+    cursor: default;
+}
 .img-logo{
     width: 70%;
     padding-top: 70%;
-    background-color: antiquewhite;
+    background-image: url('../img/logo.png');
+    background-position: center;
+    background-size: 100% 100%;
     position: relative;
 }
 .menu{
@@ -155,6 +176,7 @@ header{
     background-image: url('../img/DP-fundo2.jpg');
     background-position: center;
     text-align: center;
+    position: relative;
 }
 .box2{
     width: 300px; 
@@ -213,6 +235,7 @@ header{
     #btn-wpp:hover{
         background-color: #008927;
     }
+/* ACIMA O FOOTER */
 /*Media querys*/
 @media screen and (max-width: 900px){
     .b1,.b3{

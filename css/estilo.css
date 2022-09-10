@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
+
+*{
+    font-family: 'Roboto Slab', serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    padding-top: 40px;
+    background-color: rgb(161, 160, 160);
+    overflow-x: hidden;
+}
+.container{
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    padding: 0 30px 30px 10px;
+    background-color: rgb(161, 160, 160);
+}
+h2{
+    margin-top: 30px;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+p{
+    font-size: 20px;
+    font-weight: 800;
+    margin-top: 10px;
+}
+form{
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.form-cadastro{
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+span{
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 20px;
+}
+select{
+    font-weight: 600;
+    width: 100px;
+    height: 30px;
+    display: inline-block;
+}
+option{
+    font-weight: 600;
+}
+input[type=text]{
+    width: 100%;
+    max-width: 500px;
+    height: 30px;
+    padding-left: 10px;
+}
+input[type=date]{
+    display: inline-block;
+    position: absolute;
+    left: 100%;
+    transform: translateX(-100%);
+    margin-top: 15px;
+    font-weight: 600;
+}
+input[type=submit]{
+    width: 50%;
+    max-width: 250px;
+    height: 40px;
+    display: inline-block;
+    font-weight: 700;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size: 20px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#consultar{
+    background-color: rgb(0, 164, 164);
+}
+#cadastrar{
+    background-color: rgb(92, 137, 25);
+}
+#enviar{
+    background-color: rgb(0, 155, 0);
+}
+#btn-editar-cliente{
+    background-color: #f70000;
+    left: 0;
+    transform: translateX(0);
+    display: none;
+    font-size: 17px;
+}
+#btn-editar-produto{
+    background-color: #02b9ff;
+    left: 0;
+    transform: translateX(0);
+    display: none;
+    font-size: 17px;
+}
+#enviar-edit-cliente,#enviar-edit-produto{
+    background-color: #8e8e8e;
+    font-size: 17px;
+}
+#apagar-cliente{
+    background-color: #ca0707;
+    font-size: 17px;
+    color: #d5d5d5;
+}
+#enviar-edit-cliente:hover{
+    background-color: #404040;
+    color: #d5d5d5;
+}
+#enviar-edit-produto:hover{
+    background-color: #404040;
+    color: #d5d5d5;
+}
+#apagar-cliente:hover{
+    background-color: #8b0202;
+}
+.box-btn{
+    width: 100%;
+    text-align: center;
+}
+.box-result{
+    width: 100%;
+    margin-top: 30px;
+    padding: 20px;
+    position: relative;
+    display: none;
+}
+.tabela{
+    width: 100%;
+    background-color: rgba(240, 248, 255, 0.66);
+    text-align: left;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    border: 1px solid black;
+    padding: 10px;
+}
+.tabela th{
+    width: 50%;
+    border: 2px solid #d5d5d5;
+    padding: 5px;
+}
+.item{
+    text-align: center;
+    color: red;
+}
+.box-noFound{
+    color: red;
+    display: none;
+}
+.box-result-all{
+    display: none;
+}
+#table-empresa{
+    width: 100%;
+    background-color: rgba(240, 248, 255, 0.66);
+    text-align: left;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    border: 1px solid black;
+    padding: 10px;
+}
+#table-empresa th{
+    width: 50%;
+    border: 2px solid #d5d5d5;
+    padding: 5px;
+}
+.box-table-clientes{
+    width: 100%;
+    overflow-x: auto;
+}
+#table-clientes{
+    width: 100%;
+    font-size: 16px;
+    background-color: rgba(240, 248, 255, 0.66);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 1px solid black;
+    padding: 10px;
+}
+#table-clientes tr:first-child{
+    color: red;
+}
+#table-clientes th{
+    border: 2px solid #d5d5d5;
+    padding: 5px;
+}
+.box-cadastro{
+    display: none;
+    position: relative;
+}
+.slct{
+    margin-top: 15px;
+    position: absolute;
+    left: calc(100% - 20px);
+    transform: translateX(-100%);
+}
+.editar-cliente{
+    display: none;
+    width: 100%;
+    position: relative;
+}
+.editar-produto{
+    display: none;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.msg{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: rgba(55, 55, 55, 0.7);
+}
+.box-msg{
+    display: none;
+    max-width: 400px;
+    padding: 30px;
+    min-height: 200px;
+    background-color: #d5d5d5;
+    border-radius: 20px;
+    position: relative;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.box-msg > img{
+    width: 80px;
+    height: 80px;
+    position: relative;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.box-msg h2{
+    color: #83c64b;
+}
+.box-confirm{
+    display: none;
+    max-width: 400px;
+    min-height: 200px;
+    background-color: #c17a0e;
+    border: 1px solid #404040;
+    border-radius: 20px;
+    position: relative;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+.box-confirm input[type=button]{
+    display: inline-block;
+    width: 50px;
+    height: 35px;
+    border: 1px solid #404040;
+    border-radius: 15px;
+    margin: 30px 0;
+    cursor: pointer;
+}
+.box-confirm input[type=button]:first-of-type{
+    background-color: #8b0202;
+    color: #d5d5d5;
+}
+.src-btn{
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 54px;
+    left: 100%;
+    padding: 5px;
+    background-color:  #02b9ff;
+    background-image: url('../img/src-icon.png');
+    background-size: 80% 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #404040;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+}
+.limpar{
+    width: 32px;
+    height: 32px;
+    background-color: #3eff6e;
+    background-image: url('../img/quitar.png');
+    background-size: 80% 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border:1px solid #404040;
+    border-radius: 10px;
+    position: absolute;
+    left: 100%;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
