@@ -6,7 +6,7 @@
         
         function tamWindow(){
             //CONDIÇÃO SE ESTIVER NA PAGINA SAIBA MAIS 
-            if(window.location.pathname === '/Projetos/Brother-Beer/saibamais.php'){
+            if(window.location.pathname === '/saibamais.php'){
                 if(window.innerWidth < 576){
                     const imgProduto = document.querySelectorAll('#img-produto');
                     

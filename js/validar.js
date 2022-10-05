@@ -91,8 +91,6 @@ $(document).ready(function(){
     }
 
     function mostrarStatusTudo(data){
-
-            $('.container').css('max-width','900px');
             $('.box-result-all').fadeIn();
             $('.box-noFound').fadeOut();
             $('.box-result').fadeOut();

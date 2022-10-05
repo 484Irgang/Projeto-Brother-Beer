@@ -1,5 +1,5 @@
 window.onload = function(){
-    if(window.location.pathname === '/Projetos/Brother-Beer/saibamais.php'){
+    if(window.location.pathname === '/saibamais.php'){
         const item = document.querySelectorAll('#item-vitrine');
         const array = [];
         const outrosDesc = document.querySelectorAll('.desc');

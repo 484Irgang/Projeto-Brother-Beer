@@ -2,6 +2,8 @@
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">
+        <link rel="icon" href="img/logo.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Sistema de administração</title>
         <link rel="stylesheet" type="text/css" href="css/estilo.css">
         <script src="js/JQuery.js"></script>
