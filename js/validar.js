@@ -1,8 +1,6 @@
 
 $(document).ready(function(){
-    const nome = document.querySelector('#nome');
-    const rua = document.querySelector('#rua');
-    const numcasa = document.querySelector('#numcasa');
+    const id = document.querySelector('#id-consulta');
     const select = document.querySelector('#seletor');
     const btn = $('#consultar');
     
@@ -14,7 +12,7 @@ $(document).ready(function(){
                 url: './php/consultar.php',
                 method: 'post',
                 dataType: 'json',
-                data: {nome: nome.value, rua: rua.value, numcasa: numcasa.value, select: select.value},
+                data: {id: id.value, select: select.value},
                 success: function(data){
                         if(select.value === 'Clientes'){
                             mostrarStatusCliente(data);
@@ -79,6 +77,7 @@ $(document).ready(function(){
     }
 
     function abrirMsg(d){
+        $('.msg').css('height',$(document).height()+'px')
         $('.msg').fadeIn();
         $('.box-msg').fadeIn();
         $('html,body').animate({scrollTop: 0});

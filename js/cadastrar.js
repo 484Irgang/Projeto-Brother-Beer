@@ -15,14 +15,12 @@ $(function(){
     }
 
     function validarCadastro(){
-        const input = $('input[type=text]');
         const dataInput = $('input[type=date]');
         const select = $('select');
-
-        const nome = input[3].value;
-        const telefone = input[4].value;
-        const rua = input[5].value;
-        const num = input[6].value;
+        const nome = $('#nomeCad')[0].value;
+        const telefone = $('#telefoneCad')[0].value;
+        const rua = $('#ruaCad')[0].value;
+        const num = $('#numCasaCad')[0].value;
         const dataEnt = dataInput[0].value.split('-').reverse().join('/');
         const dataSai = dataInput[1].value.split('-').reverse().join('/');
         var maquina;
@@ -64,6 +62,7 @@ $(function(){
 
     function abrirMsg(d){
         if(d == ''){
+            $('.msg').css('height',$(document).height()+'px')
             $('.msg').fadeIn();
             $('.box-msg').fadeIn();
             $('html,body').animate({scrollTop: 0});

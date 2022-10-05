@@ -1,6 +1,6 @@
 <?php
     // $options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC);
-    $pdo = new PDO('mysql:host=108.167.188.55:3306;dbname=broth212_database','broth212_bbeer','110721',$options);
+    $pdo = new PDO('mysql:host=108.167.188.55:3306;dbname=broth212_database','','',$options);
 
     $idB = $_POST['idB'];
     $id = $_POST["id"];

@@ -48,14 +48,9 @@
                         <option>Clientes</option>
                     </select>
                     <br/>
-                    <p>Nome do cliente: </p>
-                    <input type="text" id="nome" required>
-                    <p>Rua: </p>
-                    <input type="text" id="rua" required>
-                    <p>Numero da casa: </p>
-                    <input type="text" id="numcasa" required>
-                    <br/>
-                    <input type="submit" id="consultar" value="Consultar">
+                    <p>Id do cliente: </p>
+                    <input type="text" id="id-consulta" placeholder="Id">
+                    <span id="consultar"></span>
                     <input type="submit" id="cadastrar" value="Cadastrar">
                 </form>
             </div>    

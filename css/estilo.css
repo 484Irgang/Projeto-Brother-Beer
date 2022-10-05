@@ -16,7 +16,7 @@ body{
     width: 100%;
     max-width: 1100px;
     margin: auto;
-    padding: 0 30px 30px 10px;
+    padding: 0 35px;
     background-color: rgb(161, 160, 160);
 }
 h2{
@@ -37,6 +37,9 @@ form{
     left: 50%;
     transform: translateX(-50%);
 }
+.form span{
+    font-size: 17px;
+}
 .form-cadastro{
     width: 100%;
     max-width: 500px;
@@ -51,7 +54,7 @@ span{
 }
 select{
     font-weight: 600;
-    width: 100px;
+    width: 75px;
     height: 30px;
     display: inline-block;
 }
@@ -90,7 +93,20 @@ input[type=submit]{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 #consultar{
-    background-color: rgb(0, 164, 164);
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 37.5%;
+    left: 100%;
+    padding: 5px;
+    background-color:  #02b9ff;
+    background-image: url('../img/src-icon.png');
+    background-size: 80% 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #404040;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
 }
 #cadastrar{
     background-color: rgb(92, 137, 25);
@@ -229,7 +245,6 @@ input[type=submit]{
 .msg{
     display: none;
     width: 100%;
-    height: 100%;
     position: absolute;
     z-index: 2;
     top: 0;

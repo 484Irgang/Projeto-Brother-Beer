@@ -140,7 +140,7 @@ $(function(){
         
         const select = $('select');
         var maquina;
-        if(d[0] === 0){
+        if(d[0] == 0){
             maquina = 'NÃO';
         }
         else{
@@ -194,6 +194,7 @@ $(function(){
     }
     function abrirMsg(d){
         if(d == '' || d == 'nE'){
+            $('.msg').css('height',$(document).height()+'px')
             $('.msg').fadeIn();
             $('.box-msg').fadeIn();
             $('html,body').animate({scrollTop: 0});
@@ -207,6 +208,7 @@ $(function(){
             })
         }
         else{
+            $('.msg').css('height',$(document).height()+'px')
             $('.msg').fadeIn();
             $('.box-msg').fadeIn();
             $('html,body').animate({scrollTop: 0});
