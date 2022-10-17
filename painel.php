@@ -38,7 +38,7 @@
     </head>
     <body>
         <div class="container">
-            <h2>Painel de controle</h2>
+            <h2 style="color: #6B7280;">Painel de controle</h2>
             <br/>
             <div class="form">
                 <form>
@@ -49,9 +49,10 @@
                     </select>
                     <br/>
                     <p>Id do cliente: </p>
-                    <input type="text" id="id-consulta" placeholder="Id">
+                    <input style="width: calc(100% - 37px);" type="text" id="id-consulta" placeholder="Id">
                     <span id="consultar"></span>
-                    <input type="submit" id="cadastrar" value="Cadastrar">
+                        <input type="submit" id="cadastrar" value="Cadastrar">
+                        <input type="submit" id="despesas" value="Consultar despesas">
                 </form>
             </div>    
             <div class="box-result-all">
@@ -81,23 +82,6 @@
                 <h2>Resultado dos clientes<h2>
                 <div class="box-table-clientes">    
                     <table id="table-clientes">
-                        <tr>
-                            <th>Id</th>
-                            <th>Nome</th>
-                            <th>Telefone</th>
-                            <th>Rua</th>
-                            <th>Numero</th>
-                            <th>Data Entrada</th>
-                            <th>Data Saida</th>
-                            <th>Maquina</th>
-                            <th>Barril 50L</th>
-                            <th>Barril 30L</th>
-                            <th>Agua</th>
-                            <th>Bombona</th>
-                            <th>Pães</th>
-                            <th>Carvão</th>
-
-                        </tr>
                     </table> 
                 </div><!--TABELA QUE MOSTRA TODOS OS CLIENTES-->
             </div><!--RESPOSTA PARA CONSULTA DE TUDO -->
@@ -247,7 +231,7 @@
                 <h2>Editar Produto</h2>
                 <form>
                     <p>Id cliente:</p>
-                    <input type="text" id="id-cliente"/><span class="src-btn"></span>
+                    <input style="width: calc(100% - 37px);" type="text" id="id-cliente"/><span class="src-btn"></span>
                     <p>Nome do cliente:</p><span id="put-nome"></span>
                     <br/>
                     <span>Vai usar maquina?</span>
@@ -293,7 +277,11 @@
                     <br/>
                     <input type="submit" id="enviar-edit-produto" value="Enviar">
                 <form>
-            </div><!--EDITAR PRODUTO-->   
+            </div><!--EDITAR PRODUTO-->
+            <div class="box-despesas">
+                <h2>Despesas da empresa</h2>
+                <table id="table-despesas"></table>
+            </div>
         </div><!--CONTAINER-->
         <div class="msg">
             <div class="box-msg">

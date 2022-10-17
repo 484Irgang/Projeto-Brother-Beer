@@ -214,6 +214,7 @@ $(function(){
             $('html,body').animate({scrollTop: 0});
             $('body').css('overflowY','hidden');
             $('.box-msg h2').html(d);
+            $('.box-msg h2').css('color','green');
             $('.msg').on('click', function(){
                 location.reload();
             })

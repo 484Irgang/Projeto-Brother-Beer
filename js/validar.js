@@ -1,13 +1,16 @@
 
 $(document).ready(function(){
-    const id = document.querySelector('#id-consulta');
-    const select = document.querySelector('#seletor');
+    
     const btn = $('#consultar');
+    const btnDespesas = $('#despesas');
     
     btn.on('click',validar);
+    btnDespesas.on('click',buscarDespesas);
 
     function validar(e){
         e.preventDefault();
+        const id = document.querySelector('#id-consulta');
+        const select = document.querySelector('#seletor');
             $.ajax({
                 url: './php/consultar.php',
                 method: 'post',
@@ -27,18 +30,31 @@ $(document).ready(function(){
             })
     }
 
+    function buscarDespesas(e){
+        e.preventDefault();
+
+        $('.box-result-all').fadeOut();
+        $('.box-result').fadeOut();
+        $('.box-btn').fadeOut();
+        $('.box-despesas').fadeIn();
+
+        $.ajax({
+            url: './php/despesas.php',
+            method: 'post',
+            dataType: 'json',
+            data: {btn: e.target.id},
+            success: function(data){
+                mostrarDespesas(data);
+            }
+        })
+    }
+
     function mostrarStatusCliente(data){
         if(data[0] == null){
-            $('.box-cadastro').fadeOut();
-            $('.box-result-all').fadeOut();
-            $('.box-result').fadeOut();
             abrirMsg('Cliente não encontrado');
         }
         else{
-            $('.box-cadastro').fadeOut();
             $('.box-result-all').fadeOut();
-            $('.box-noFound').fadeOut();
-            $('#btn-editar-empresa').fadeOut();
             $('.box-result').fadeIn();
             $('#btn-editar-cliente').fadeIn();
             $('#btn-editar-produto').fadeIn();
@@ -83,7 +99,7 @@ $(document).ready(function(){
         $('html,body').animate({scrollTop: 0});
         $('body').css('overflowY','hidden');
         $('.box-msg h2').html(d);
-        $('.box-msg h2').css('color','red');
+        $('.box-msg h2').css('color','#b91c1c');
         $('.msg').on('click', function(){
             location.reload();
         })
@@ -91,12 +107,8 @@ $(document).ready(function(){
 
     function mostrarStatusTudo(data){
             $('.box-result-all').fadeIn();
-            $('.box-noFound').fadeOut();
             $('.box-result').fadeOut();
-            $('.box-cadastro').fadeOut();
-            $('#btn-editar-cliente').fadeIn();
-            $('#btn-editar-produto').fadeIn();
-            $('#btn-editar-empresa').fadeIn();
+            $('.box-btn').fadeIn();
             const dadosEmp = data[1][0];
             const dadosCli = data[0];
             
@@ -117,6 +129,15 @@ $(document).ready(function(){
         $('#table-clientes').html('<tr><th>Id</th><th>Nome</th><th>Telefone</th><th>Rua</th><th>Numero</th><th>Data Entrada</th><th>Data Saida</th><th>Maquina</th><th>Barril 50L</th><th>Barril 30L</th><th>Agua</th><th>Bombona</th><th>Pães</th><th>Carvão</th></tr>');
         for(i=0;i<dados.length;i++){
             $('#table-clientes').append("<tr><th>"+dados[i].id+"</th><th>"+dados[i].nome+"</th><th>"+dados[i].telefone+"</th><th>"+dados[i].rua+"</th><th>"+dados[i].numcasa+"</th><th>"+dados[i].dataE+"</th><th>"+dados[i].dataS+"</th><th>"+dados[i].maquina+"</th><th>"+dados[i].barril50L+"</th><th>"+dados[i].barril30L+"</th><th>"+dados[i].agua+"</th><th>"+dados[i].galao+"</th><th>"+dados[i].pao+"</th><th>"+dados[i].carvao+"</th></tr>");
+        }
+    }
+
+    function mostrarDespesas(d){
+        $('#table-despesas').html('<tr><th>Data</th><th>Gasolina</th><th>Gás</th><th>Agua</th><th>Luz</th><th>Aluguel</th><th>Saco</th><th>Oficina</th><th>Copo</th><th>Equipamentos</th><th>Ferramentas</th></tr>');
+        for(i=0;i<d.length;i++){
+            const data = d[i].data.split('-').reverse().join('/');
+            
+            $('#table-despesas').append("<tr><th>"+data+"</th><th>"+d[i].gasolina+",00</th><th>"+d[i].gas+",00</th><th>"+d[i].agua+",00</th><th>"+d[i].luz+",00</th><th>"+d[i].aluguel+",00</th><th>"+d[i].saco+",00</th><th>"+d[i].oficina+",00</th><th>"+d[i].copo+",00</th><th>"+d[i].equipamentos+",00</th><th>"+d[i].ferramentas+",00</th></tr>");
         }
     }
     
