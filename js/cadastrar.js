@@ -8,6 +8,7 @@ $(function(){
         $('.box-result-all').fadeOut();
         $('.box-result').fadeOut();
         $('.box-noFound').fadeOut();
+        $('.box-despesas').fadeOut();
         $('.box-cadastro').fadeIn();
         $('#btn-editar-cliente').fadeOut();
         $('#btn-editar-produto').fadeOut();

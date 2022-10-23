@@ -23,9 +23,6 @@ $(document).ready(function(){
                         else if(select.value === 'Tudo'){
                             mostrarStatusTudo(data);
                         }
-                },
-                erro: function(){
-                    console.log('Deu errado');
                 }
             })
     }
@@ -37,6 +34,28 @@ $(document).ready(function(){
         $('.box-result').fadeOut();
         $('.box-btn').fadeOut();
         $('.box-despesas').fadeIn();
+
+        $('#cad-despesa').on('click',function(e){
+            e.preventDefault();
+            $('.edit-desp').fadeOut();
+            $('.cadastro-despesa').fadeIn();
+            $('html, body').animate({scrollTop: $('.cadastro-despesa')[0].offsetTop}, 'slow')
+            $('#envia-cad-desp').on('click',cadastrarDespesa);
+        });
+
+        $('#edit-despesa').on('click', function(e){
+            e.preventDefault();
+            $('.cadastro-despesa').fadeOut();
+            $('.edit-desp').fadeIn();
+            
+            setTimeout(function(){
+                $('html, body').animate({scrollTop: $('.edit-desp')[0].offsetTop}, 'slow');
+            }, 500);
+
+            $('#src-btn-edit-desp').on('click',srcDespesa)
+        });
+
+        
 
         $.ajax({
             url: './php/despesas.php',
@@ -51,13 +70,13 @@ $(document).ready(function(){
 
     function mostrarStatusCliente(data){
         if(data[0] == null){
-            abrirMsg('Cliente não encontrado');
+            abrirMsg('Cliente não encontrado', '#ef4444');
         }
         else{
             $('.box-result-all').fadeOut();
+            $('.box-despesas').fadeOut();
             $('.box-result').fadeIn();
-            $('#btn-editar-cliente').fadeIn();
-            $('#btn-editar-produto').fadeIn();
+            $('.box-btn').fadeIn();
             const dados = data[0];
             let boxId = document.querySelector('.idCliente');
             let boxNome = document.querySelector('.nome');
@@ -92,16 +111,15 @@ $(document).ready(function(){
 
     }
 
-    function abrirMsg(d){
+    function abrirMsg(d,cor){
         $('.msg').css('height',$(document).height()+'px')
         $('.msg').fadeIn();
         $('.box-msg').fadeIn();
-        $('html,body').animate({scrollTop: 0});
-        $('body').css('overflowY','hidden');
+        // $('html,body').animate({scrollTop: 0});
         $('.box-msg h2').html(d);
-        $('.box-msg h2').css('color','#b91c1c');
+        $('.box-msg h2').css('color',cor);
         $('.msg').on('click', function(){
-            location.reload();
+            $('.msg').fadeOut();
         })
     }
 
@@ -140,6 +158,115 @@ $(document).ready(function(){
             $('#table-despesas').append("<tr><th>"+data+"</th><th>"+d[i].gasolina+",00</th><th>"+d[i].gas+",00</th><th>"+d[i].agua+",00</th><th>"+d[i].luz+",00</th><th>"+d[i].aluguel+",00</th><th>"+d[i].saco+",00</th><th>"+d[i].oficina+",00</th><th>"+d[i].copo+",00</th><th>"+d[i].equipamentos+",00</th><th>"+d[i].ferramentas+",00</th></tr>");
         }
     }
+
+    function cadastrarDespesa(e){
+        e.preventDefault();
+        const data = $('#data-desp')[0];
+
+        if(data.value == ''){
+            abrirMsg('A data precisa ser preeenchida!','#fb923c');
+        }
+        else{
+            const btn = e.target.id;
+            const gasolina = $('#desp-gasolina')[0];
+            const gas = $('#desp-gas')[0];
+            const agua = $('#desp-agua')[0];
+            const luz = $('#desp-luz')[0];
+            const aluguel = $('#desp-aluguel')[0];
+            const saco = $('#desp-saco')[0];
+            const oficina = $('#desp-oficina')[0];
+            const copo = $('#desp-copo')[0];
+            const equip = $('#desp-equip')[0];
+            const ferramenta = $('#desp-ferramenta')[0];
+
+            const dados = [data.value,gasolina.value,gas.value,agua.value,luz.value,aluguel.value,saco.value,oficina.value,copo.value,equip.value,ferramenta.value];
+
+            $.ajax({
+                url: './php/despesas.php',
+                method: 'post',
+                data: {btn:btn,d:dados},
+                success: function(d){
+                    if(d == 'data-ja-cad'){
+                        abrirMsg('Data já cadastrada','#ef4444');
+                    }
+                    else{
+                        abrirMsg('Despesa cadastrada','#A3E635');
+                        setTimeout(function(){
+                            location.reload();
+                        },2500);
+                    }
+                }
+            });
+        }
+    }
     
-    
+    function srcDespesa(e){
+        const data = $("#data-desp-edit")[0];
+
+        if(data.value == ''){
+            abrirMsg('A data precisa ser preeenchida!','#fb923c');
+        }else{
+            $.ajax({
+                url: './php/despesas.php',
+                method: 'post',
+                dataType: 'json',
+                data: {btn: e.target.id, d: data.value},
+                success: function(d){
+                   if(d == 'nE'){
+                        abrirMsg('Data não encontrada','#ef4444');
+                   }
+                   else{
+                        mostrarSrcDespesas(d);
+                   }
+                }
+            });
+        }
+    }
+
+    function mostrarSrcDespesas(d){
+        const data = $('#data-desp-edit')[0];
+        const gasolina = $('#edit-desp-gasolina')[0];
+        const gas = $('#edit-desp-gas')[0];
+        const agua = $('#edit-desp-agua')[0];
+        const luz = $('#edit-desp-luz')[0];
+        const aluguel = $('#edit-desp-aluguel')[0];
+        const saco = $('#edit-desp-saco')[0];
+        const oficina = $('#edit-desp-oficina')[0];
+        const copo = $('#edit-desp-copo')[0];
+        const equipamento = $('#edit-desp-equip')[0];
+        const ferramenta = $('#edit-desp-ferramenta')[0];
+
+        const dados = [data,gasolina,gas,agua,luz,aluguel,saco,oficina,copo,equipamento,ferramenta]
+
+        for(i=0;i<dados.length;i++){
+            dados[i].value = d[i];
+        }
+
+        $('#envia-edit-desp').on('click',function(e){
+            e.preventDefault();
+            editarDespesa(e,dados)
+        });
+    }
+
+    function editarDespesa(e,dados){
+        const valorDados = [];
+        for(i=0;i<dados.length;i++){
+            valorDados.push(dados[i].value);
+        }
+        $.ajax({
+            url: './php/despesas.php',
+            method: 'post',
+            data: {btn: e.target.id, d:valorDados}
+        }).done(function(data){
+            if(data == 'feito'){
+                abrirMsg('Despesa alterada com sucesso!','#A3E635');
+                setTimeout(function(){
+                    location.reload();
+                },2000);
+            }
+            else{
+                alert('Erro ao editar despesa');
+            }
+        });
+    }
 })

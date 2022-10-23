@@ -7,6 +7,7 @@ $(function(){
 
     function abrirEditar(e){
         e.preventDefault();
+        $('.box-despesas').fadeOut();
         $('.box-result-all').fadeOut();
         $('.box-result').fadeOut();
         $('.form').fadeOut();
@@ -23,13 +24,13 @@ $(function(){
             $(".box-btn").fadeOut();
             $('.editar-produto').fadeIn();
             const srcBtn = $('.src-btn');
-            const btnEnviar = $('#enviar-edit-produto');
             const btnLimpar = $('.limpar');
+
             srcBtn.on('click',procurarCliente);
+
             for(i=0;i<btnLimpar.length;i++){
                 btnLimpar[i].addEventListener('click',limparProduto)
             }
-            btnEnviar.on('click',enviarProduto);
         }
 
     }
@@ -155,7 +156,9 @@ $(function(){
         select[14].value = d[6];
 
         $("#put-nome").html(d[7]);
+        $('#enviar-edit-produto').on('click',enviarProduto)
     }
+
     function confirmApagar(e){
         e.preventDefault();
         $('.msg').fadeIn();

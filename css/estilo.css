@@ -98,6 +98,7 @@ input[type=submit]{
     max-width: 250px;
     height: 40px;
     display: inline-block;
+    color: #27272a;
     font-weight: 700;
     position: relative;
     left: 50%;
@@ -107,7 +108,7 @@ input[type=submit]{
     border-radius: 10px;
     cursor: pointer;
     transition: 0.5s;
-    font-size: 20px;
+    font-size: 18px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 #consultar{
@@ -119,7 +120,7 @@ input[type=submit]{
     left: 100%;
     transform: translateX(-100%);
     padding: 5px;
-    background-color:  #02b9ff;
+    background-color:  #86efac;
     background-image: url('../img/src-icon.png');
     background-size: 80% 80%;
     background-position: center;
@@ -280,10 +281,10 @@ input[type=submit]{
     min-height: 200px;
     background-color: #27272A;
     border-radius: 20px;
-    position: relative;
-    top: 40px;
+    position: fixed;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%,-50%);
 }
 .box-msg > img{
     width: 150px;
@@ -326,11 +327,11 @@ input[type=submit]{
     width: 32px;
     height: 32px;
     position: absolute;
-    top: 54px;
+    top: 49px;
     left: 100%;
     transform: translateX(-100%);
     padding: 5px;
-    background-color:  #02b9ff;
+    background-color:  #86efac;
     background-image: url('../img/src-icon.png');
     background-size: 80% 80%;
     background-position: center;
@@ -357,13 +358,12 @@ input[type=submit]{
 .box-despesas{
     width: 100%;
     padding: 2%;
-    overflow-x: auto;
     display: none;
 }
 #table-despesas{
     background-color: #27272A;
     padding: 2%;
-    margin: 32px auto;
+    margin: 32px auto 0 auto;
     font-size: 18px;
 }
 #table-despesas tr:first-child th{
@@ -375,4 +375,134 @@ input[type=submit]{
     padding: 5px;
     font-weight: 500;
     color: #FFFFFF;
+}
+.btns-despesa{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.btns-despesa input[type=submit]{
+    position: static;
+    transform: translateX(0);
+    width: 30%;
+}
+#cad-despesa{
+    background-color: #4ade80;
+}
+#edit-despesa{
+    background-color: #7dd3fc;
+}
+#calc-despesa{
+    background-color: #fb923c;
+}
+.cadastro-despesa{
+    padding: 2% 0;
+    display: none;
+}
+.form-desp{
+    width: 100%;
+    max-width: 500px;
+    margin: 2% auto;
+    padding: 4%;
+    background-color: #27272A;
+}
+.form-desp input[type=date]{
+    width: 50%;
+    display: inline-block;
+    position: static;
+    margin: 10px 0;
+    transform: translateX(0);
+    padding: 6px 1%;
+    background-color: #3f3f3f;
+}
+.form-desp span{
+    font-size: 20px;
+    margin: 0;
+    width: 50%;
+    display: inline-block;
+}
+.form-desp input[type=number]{
+    width: 50%;
+    outline: none;
+    border-radius: 5px;
+    border: 0;
+    background-color: #3f3f3f;
+    color: #FFF;
+    padding: 6px 1%;
+}
+.edit-desp{
+    display: none;
+    padding: 2% 0;
+}
+.form-edit-desp{
+    width: 100%;
+    max-width: 500px;
+    margin: 2% auto;
+    padding: 4%;
+    background-color: #27272A;
+    position: relative;
+}
+.form-edit-desp input[type=date]{
+    width: calc(50% - 37px);
+    display: inline-block;
+    position: static;
+    margin: 10px 0;
+    transform: translateX(0);
+    padding: 6px 1%;
+    background-color: #3f3f3f;
+}
+.form-edit-desp span{
+    font-size: 20px;
+    margin: 0;
+    width: 50%;
+    display: inline-block;
+}
+.form-edit-desp input[type=number]{
+    width: 50%;
+    outline: none;
+    border-radius: 5px;
+    border: 0;
+    background-color: #3f3f3f;
+    color: #FFF;
+    padding: 6px 1%;
+}
+.form-edit-desp i{
+    display: inline-block;
+    position: relative;
+    top: 11px;
+    left: 4px;
+    width: 32px;
+    height: 32px;
+    padding: 5px;
+    background-color:  #86efac;
+    background-image: url('../img/src-icon.png');
+    background-size: 80% 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+}
+.apagar-despesa{
+    width: 100%;
+    max-width: 250px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #ef4444;
+    cursor: pointer;
+}
+@media screen and (max-width: 600px){
+    .btns-despesa{
+        flex-direction: column;
+        align-items: center;
+    }
+    .btns-despesa input[type=submit]{
+        width: 100%;
+    }
 }

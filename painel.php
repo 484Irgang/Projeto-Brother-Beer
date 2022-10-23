@@ -153,18 +153,18 @@
                 <div class="form-cadastro">
                     
                     <p>Nome do cliente:</p>
-                    <input type="text" id="nomeCad" required>
+                    <input type="text" id="nomeCad">
                     <p>Telefone:</p>
-                    <input type="text" id="telefoneCad" required>
+                    <input type="text" id="telefoneCad">
                     <p>Rua:</p>
-                    <input type="text" id="ruaCad" required>
+                    <input type="text" id="ruaCad">
                     <p>Numero da casa:</p>
-                    <input type="text" id="numCasaCad" required>
+                    <input type="text" id="numCasaCad">
                     <p style="display: inline-block;">Data entrada:</p>
-                    <input type="date" id="dataECad" required>
+                    <input type="date" id="dataECad">
                     <br/>
                     <p style="display: inline-block;">Data saida:</p>
-                    <input type="date" id="dataSCad" required>
+                    <input type="date" id="dataSCad">
                     <br/>
                     <span>Vai usar maquina?</span>
                     <select id="select-maquina">
@@ -218,10 +218,10 @@
                     <input type="text" id="editNumCasa" />
                     <br/>
                     <p style="display: inline-block;">Data entrada:</p>
-                    <input type="date" id="editDataE" required>
+                    <input type="date" id="editDataE">
                     <br/>
                     <p style="display: inline-block;">Data saida:</p>
-                    <input type="date" id="editDataS" required>
+                    <input type="date" id="editDataS">
                     <br/>
                     <input type="submit" id="enviar-edit-cliente" value="Enviar edição"/>
                     <input type="submit" id="apagar-cliente" value="Apagar cliente"/>
@@ -280,7 +280,54 @@
             </div><!--EDITAR PRODUTO-->
             <div class="box-despesas">
                 <h2>Despesas da empresa</h2>
-                <table id="table-despesas"></table>
+                <div style="width: 100%; overflow-x: auto;">
+                    <table id="table-despesas"></table>
+                </div>
+                
+                <div class="btns-despesa">
+                    <input id="cad-despesa" type="submit" value="Cadastrar despesa"/>
+                    <input id="edit-despesa" type="submit" value="Editar despesa"/>
+                    <input id="calc-despesa" type="submit" value="Calcular total"/>
+                </div>
+
+                <div class="cadastro-despesa">
+                    <h2>Cadastre as despesas abaixo</h2>
+
+                    <div class="form-desp">
+                        <span>Selecione a data:</span><input type="date" id="data-desp"/><br/>
+                        <span>Gasolina: </span><input type="number" id="desp-gasolina"/>
+                        <span>Gás: </span><input type="number" id="desp-gas"/>
+                        <span>Agua: </span><input type="number" id="desp-agua"/>
+                        <span>Luz: </span><input type="number" id="desp-luz"/>
+                        <span>Aluguel: </span><input type="number" id="desp-aluguel"/>
+                        <span>Saco: </span><input type="number" id="desp-saco"/>
+                        <span>Oficina: </span><input type="number" id="desp-oficina"/>
+                        <span>Copo: </span><input type="number" id="desp-copo"/>
+                        <span>Equipamentos: </span><input type="number" id="desp-equip"/>
+                        <span>Ferramentas: </span><input type="number" id="desp-ferramenta"/>
+                        <input style="background-color: #3b82f6;" id="envia-cad-desp" type="submit" value="Enviar"/>
+                    </div>
+                </div><!--sessão de cadastro de despesas -->
+                
+                <div class="edit-desp">
+                    <h2>Edite a despesa abaixo</h2>
+                    <div class="form-edit-desp">
+                        <span>Selecione a data:</span><input type="date" id="data-desp-edit"/><i id="src-btn-edit-desp"></i>
+                        <span>Gasolina: </span><input type="number" id="edit-desp-gasolina"/>
+                        <span>Gás: </span><input type="number" id="edit-desp-gas"/>
+                        <span>Agua: </span><input type="number" id="edit-desp-agua"/>
+                        <span>Luz: </span><input type="number" id="edit-desp-luz"/>
+                        <span>Aluguel: </span><input type="number" id="edit-desp-aluguel"/>
+                        <span>Saco: </span><input type="number" id="edit-desp-saco"/>
+                        <span>Oficina: </span><input type="number" id="edit-desp-oficina"/>
+                        <span>Copo: </span><input type="number" id="edit-desp-copo"/>
+                        <span>Equipamentos: </span><input type="number" id="edit-desp-equip"/>
+                        <span>Ferramentas: </span><input type="number" id="edit-desp-ferramenta"/>
+                        <input style="background-color: #a3e635;" id="envia-edit-desp" type="submit" value="Enviar"/>
+                        <button class="apagar-despesa">Apagar despesa</button>
+                    </div>
+                </div><!-- /.edit-desp -->
+
             </div>
         </div><!--CONTAINER-->
         <div class="msg">
