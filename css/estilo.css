@@ -497,6 +497,24 @@ input[type=submit]{
     background-color: #ef4444;
     cursor: pointer;
 }
+.apagar-confirm-sim{
+    padding: 4px 8px;
+    margin: 30px 5px;
+    border: none;
+    background-color: #d11212;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+}
+.apagar-confirm-nao{
+    padding: 4px 8px;
+    margin: 30px 5px;
+    border: none;
+    background-color: #c6b2b2;
+    border-radius: 8px;
+    color: #27272a;
+    cursor: pointer;
+}
 @media screen and (max-width: 600px){
     .btns-despesa{
         flex-direction: column;

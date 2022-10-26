@@ -28,7 +28,7 @@
         $sql->execute();
         $info = $sql->fetchAll();
         if($info == null){
-            echo 'nE';
+            echo '{"0":"nE"}';
         }
         else{
             $json = json_encode($info[0]);
@@ -42,6 +42,12 @@
         $sql->execute();
         echo 'feito';
 
+    }
+    else if($btn == 'enviar-apagar-despesa'){
+        $data = $_POST['d'];
+        $sql = $pdo->prepare("DELETE FROM `despesas` WHERE `data` = '$data'");
+        $sql->execute();
+        echo 'feito';
     }
 
 ?>

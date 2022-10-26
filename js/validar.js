@@ -212,7 +212,7 @@ $(document).ready(function(){
                 dataType: 'json',
                 data: {btn: e.target.id, d: data.value},
                 success: function(d){
-                   if(d == 'nE'){
+                   if(d[0] == 'nE'){
                         abrirMsg('Data não encontrada','#ef4444');
                    }
                    else{
@@ -246,6 +246,35 @@ $(document).ready(function(){
             e.preventDefault();
             editarDespesa(e,dados)
         });
+
+        $('#enviar-apagar-despesa').on('click',function(e){
+            e.preventDefault();
+            apagarDespesa(e,data);
+        });
+    }
+
+    function apagarDespesa(e,d){
+        const btn = e.target.id;
+        if(d.value == ''){
+            abrirMsg('Coloque a data','#ef4444');
+        }
+        else{
+            abrirMsg('Você tem certeza que deseja apagar?<br/><button class="apagar-confirm-sim">Sim</button><button class="apagar-confirm-nao">Não</button>','#fff')
+
+            $(".apagar-confirm-sim").on('click',function(e){
+                e.preventDefault();
+                $.ajax({
+                    url: './php/despesas.php',
+                    method: 'post',
+                    data: {btn: btn, d: d.value},
+                    success: function(d){
+                        if(d == 'feito'){
+                            abrirMsg('Despesa excluida com sucesso<br/><a style="padding: 4px 8px; background-color: #70af08; margin: 30px 10px; text-decoration: none; color: #fff; font-size: 18px; font-weight: 500; display: inline-block; border-radius: 8px;" href="./painel.php">Home</a><button style="padding: 4px 8px;margin: 30px 10px;border: none;background-color: #c6b2b2;font-size: 18px; font-weight: 500;border-radius: 8px;color: #27272a; cursor: pointer;">Ok</button>')
+                        }
+                    }
+                })
+            })
+        }
     }
 
     function editarDespesa(e,dados){

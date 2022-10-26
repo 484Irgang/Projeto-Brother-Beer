@@ -324,7 +324,7 @@
                         <span>Equipamentos: </span><input type="number" id="edit-desp-equip"/>
                         <span>Ferramentas: </span><input type="number" id="edit-desp-ferramenta"/>
                         <input style="background-color: #a3e635;" id="envia-edit-desp" type="submit" value="Enviar"/>
-                        <button class="apagar-despesa">Apagar despesa</button>
+                        <button id="enviar-apagar-despesa" class="apagar-despesa">Apagar despesa</button>
                     </div>
                 </div><!-- /.edit-desp -->
 
