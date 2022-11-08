@@ -259,6 +259,21 @@ input[type=submit]{
         background: linear-gradient(to right, var(--bg1), var(--bg2));
     }
 }
+
+.tab-lucros{
+    width: 100%;
+    background-color: #3f3f3f;
+    font-size: 17px;
+    margin-top: 10px;
+    font-weight: 300;
+}
+.tab-lucros th{
+    border: 0.5px solid #27272A;
+}
+.tab-lucros tr>th:last-of-type{
+    color: #83c64b;
+}
+
 .box-table-clientes{
     width: 100%;
     overflow-x: auto;
@@ -312,8 +327,10 @@ input[type=submit]{
 }
 .box-msg{
     display: none;
+    width: 100%;
+    margin: auto 2%;
     max-width: 400px;
-    padding: 30px;
+    padding: 30px 2%;
     min-height: 200px;
     background-color: #27272A;
     border-radius: 20px;
