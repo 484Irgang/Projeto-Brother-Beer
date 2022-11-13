@@ -223,6 +223,42 @@ input[type=submit]{
     padding: 5px;
     font-weight: 500;
 }
+.btn-edit-lucros-emp button{
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+.btn-edit-lucros-emp button:nth-of-type(1){
+    --bg1: red;
+    --bg2: orangered;
+    background: linear-gradient(to right, var(--bg1), var(--bg2));
+}
+.btn-edit-lucros-emp button:nth-of-type(2){
+    --bg1: #5eead4;
+    --bg2: #0d9488;
+    background: linear-gradient(to right, var(--bg1), var(--bg2) );
+}
+.btn-edit-lucros-emp button:hover{
+    animation: gradient 0.5s infinite;
+}
+
+@keyframes gradient{
+    25%{
+        background: linear-gradient(to top, var(--bg1), var(--bg2));
+    }
+    50%{
+        background: linear-gradient(to left, var(--bg1), var(--bg2));
+    }
+    75%{
+        background: linear-gradient(to bottom, var(--bg1), var(--bg2));
+    }
+    100%{
+        background: linear-gradient(to right, var(--bg1), var(--bg2));
+    }
+}
 .box-table-clientes{
     width: 100%;
     overflow-x: auto;

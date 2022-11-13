@@ -79,6 +79,13 @@
                         <th class="item carvaoEmp"></th>
                     </tr>
                 </table><!--TABELA QUE MOSTRA STATUS DA EMPRESA-->
+                <div class="btn-edit-lucros-emp">
+                
+                    <button id="limpar-lucros">Limpar</button>
+                    <button id="calc-lucros">Calcular</button>
+                    
+                </div>
+                <!-- BOTÕES QUE EDITAM OS LUCROS DA EMPRESA -->
                 <h2>Resultado dos clientes<h2>
                 <div class="box-table-clientes">    
                     <table id="table-clientes">

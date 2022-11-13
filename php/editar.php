@@ -3,16 +3,16 @@
     $pdo = new PDO('mysql:host=localhost;dbname=basedados','root','');
 
     $idB = $_POST['idB'];
-    $id = $_POST["id"];
+    
 
     if($idB === 'enviar-edit-cliente'){
 
+        $id = $_POST["id"];
         
         if($id === ''){
             echo null;
         }
         else{
-
             $sql = $pdo->prepare("SELECT nome,telefone,rua,numcasa,dataE,dataS FROM clientes WHERE id = '$id'");
             $sql->execute();
             $info = $sql->fetchAll();
@@ -37,11 +37,13 @@
 
     }
     else if($idB === 'apagar'){
+        $id = $_POST["id"];
         $sql = $pdo->prepare("DELETE FROM clientes WHERE id = '$id'");
         $sql->execute();
         echo 'Cliente apagado';
     }
     else if($idB === 'src-btn'){
+        $id = $_POST["id"];
         $sql = $pdo->prepare("SELECT maquina,barril50L,barril30L,agua,galao,pao,carvao,nome FROM clientes WHERE id = '$id'");
         $sql->execute();
         $info = $sql->fetchAll();
@@ -56,6 +58,7 @@
 
     }
     else if($idB === 'limpar'){
+        $id = $_POST["id"];
         $idP = $_POST['idP'];
         $sql = $pdo->prepare("SELECT $idP FROM clientes WHERE id = $id");
         $sql->execute();
@@ -73,6 +76,7 @@
         }
     }
     else if($idB === 'enviar-edit-produto'){
+        $id = $_POST["id"];
         $m = $_POST['m'];
         $b50 = $_POST['b50'];
         $b30 = $_POST['b30'];

@@ -141,8 +141,14 @@ $(document).ready(function(){
         $('.aguaEmp').html(dados.agua);
         $('.paoEmp').html(dados.pao);
         $('.carvaoEmp').html(dados.carvao);
+
+        $('.btn-edit-lucros-emp button').on('click',editarEmpresa);
     }
 
+    function editarEmpresa(e){
+        const btn = e.target.id;
+        
+    }
     function mostrarClientes(dados){
         $('#table-clientes').html('<tr><th>Id</th><th>Nome</th><th>Telefone</th><th>Rua</th><th>Numero</th><th>Data Entrada</th><th>Data Saida</th><th>Maquina</th><th>Barril 50L</th><th>Barril 30L</th><th>Agua</th><th>Bombona</th><th>Pães</th><th>Carvão</th></tr>');
         for(i=0;i<dados.length;i++){

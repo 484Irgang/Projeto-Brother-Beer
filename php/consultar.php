@@ -9,7 +9,7 @@
            $sql = $pdo->prepare("SELECT * FROM empresa");
            $sql->execute();
            $infoEmp = $sql->fetchAll();
-           $sql = $pdo->prepare("SELECT * FROM clientes");
+           $sql = $pdo->prepare("SELECT * FROM clientes ORDER BY nome");
            $sql->execute();
            $infoCli = $sql->fetchAll();
            $json = json_encode(array($infoCli,$infoEmp));
