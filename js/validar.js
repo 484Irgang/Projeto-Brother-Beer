@@ -147,47 +147,8 @@ $(document).ready(function(){
 
     function editarEmpresa(e){
         const btn = e.target.id;
-        if(btn == 'limpar-lucros'){
-            abrirMsg('<h2>Você tem certeza que deseja limpar os lucros?</h2><br/><button class="apagar-confirm-sim">Sim</button><button class="apagar-confirm-nao">Não</button>','#FFF');
-            $('.apagar-confirm-sim').on('click',function(){
-                editarLucros(btn);
-            })
-        }
-        else{
-            editarLucros(btn);
-        }
+        
     }
-
-    function editarLucros(btn){
-        $.ajax({
-            url: './php/editar.php',
-            method: 'post',
-            dataType: 'json',
-            data: {idB: btn},
-            success: function(d){
-                if(d[0] == 'limpo'){
-                    abrirMsg('Lucros limpos com sucesso!',"#83c64b")
-                }
-                else{
-                    const preco = [1,500,330,15,0.8,24];
-                    const calc = [];
-                        for(i=1;i<preco.length;i++){
-                            calc.push(d[0][i] * preco[i]);
-                        }
-                        const result = calc.map( (v) => {
-                            var ar = v.toString().split("");
-                            if(ar.length > 3 ){
-                                ar.splice(ar.length - 3, 0, '.');
-                            }
-                            return ar.join("");
-                        })
-                        
-                    abrirMsg("<h2>Seus lucros</h2><table class='tab-lucros'><tr><th>Barril 50L</th><th>"+result[0]+",00</th></tr><tr><th>Barril 30L</th><th>"+result[1]+",00</th></tr><tr><th>Agua</th><th>"+result[2]+",00</th></tr><tr><th>Pães</th><th>"+result[3]+",00</th></tr><tr><th>Carvão</th><th>"+result[4]+",00</th></tr></table>","#fff")
-                }
-            }
-        })
-    }
-
     function mostrarClientes(dados){
         $('#table-clientes').html('<tr><th>Id</th><th>Nome</th><th>Telefone</th><th>Rua</th><th>Numero</th><th>Data Entrada</th><th>Data Saida</th><th>Maquina</th><th>Barril 50L</th><th>Barril 30L</th><th>Agua</th><th>Bombona</th><th>Pães</th><th>Carvão</th></tr>');
         for(i=0;i<dados.length;i++){

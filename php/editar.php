@@ -88,20 +88,6 @@
         $sql->execute();
         echo 'Produtos alterados';
     }
-    else if($idB === 'limpar-lucros'){
-        $sql = $pdo->prepare("UPDATE empresa SET barril50 = 0, barril30 = 0, agua = 0, pao = 0, carvao = 0 WHERE id = 1 ");
-        $sql->execute();
-        $info = array('limpo');
-        $json = json_encode($info);
-        echo $json;
-    }
-    else if($idB === 'calc-lucros'){
-        $sql = $pdo->prepare("SELECT * FROM empresa WHERE id = 1 ");
-        $sql->execute();
-        $info = $sql->fetchAll();
-        $json = json_encode($info);
-        echo $json;
-    }
 
     function adicionarContagem($idP,$p,$pdo){
         if($idP === 'barril50L'){
