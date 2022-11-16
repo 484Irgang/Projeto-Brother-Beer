@@ -65,12 +65,12 @@
         $info = $sql->fetchAll();
         adicionarContagem($idP,$info,$pdo);
         if($idP === 'agua' || $idP === 'galao'){
-            $sql = $pdo->prepare("UPDATE clientes SET agua = null, galao = null WHERE id = $id");
+            $sql = $pdo->prepare("UPDATE clientes SET agua = 0, galao = 0 WHERE id = $id");
             $sql->execute();
             echo 'feito-os-2';
         }
         else{
-            $sql = $pdo->prepare("UPDATE clientes SET $idP = null WHERE id = $id");
+            $sql = $pdo->prepare("UPDATE clientes SET $idP = 0 WHERE id = $id");
             $sql->execute();
             echo 'feito';
         }
